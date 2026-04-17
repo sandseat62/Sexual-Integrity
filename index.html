@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoration Resource Hub | Grace Community Church</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        grace: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .tabs-container::-webkit-scrollbar { height: 6px; }
+        .tabs-container::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .tabs-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-church text-grace-700 text-2xl mr-3"></i>
+                    <div>
+                        <h1 class="text-xl font-bold text-slate-900 leading-tight">Grace Community Church</h1>
+                        <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Restoration Hub</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:3139361512" class="text-grace-700 font-medium hover:text-grace-900 transition flex items-center bg-grace-50 px-4 py-2 rounded-lg">
+                        <i class="fa-solid fa-phone mr-2"></i> 313.936.1512
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-grace-900 text-white py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-sm font-semibold tracking-widest text-grace-100 uppercase mb-3">A Church Without Curtains</h2>
+            <h1 class="text-4xl sm:text-5xl font-bold mb-6">Restoration Master Plan</h1>
+            <p class="text-lg sm:text-xl text-grace-100 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+                A blueprint for sexual integrity and healing. We are a mosaic of broken pieces, coming together to build a legacy of truth, freedom, and protection.
+            </p>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-10">
+        <div class="bg-white rounded-xl shadow-md p-2">
+            <div class="tabs-container flex overflow-x-auto space-x-2 pb-2 sm:pb-0 scroll-smooth">
+                <button onclick="switchTab('men')" id="tab-men" class="tab-btn shrink-0 flex-1 py-3 px-4 rounded-lg text-sm font-semibold transition bg-grace-100 text-grace-900 border border-grace-200 flex items-center justify-center whitespace-nowrap">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> 1. The Struggler
+                </button>
+                <button onclick="switchTab('spouse')" id="tab-spouse" class="tab-btn shrink-0 flex-1 py-3 px-4 rounded-lg text-sm font-semibold transition hover:bg-slate-50 text-slate-600 border border-transparent flex items-center justify-center whitespace-nowrap">
+                    <i class="fa-solid fa-heart-crack mr-2"></i> 2. The Spouse
+                </button>
+                <button onclick="switchTab('freedom')" id="tab-freedom" class="tab-btn shrink-0 flex-1 py-3 px-4 rounded-lg text-sm font-semibold transition hover:bg-slate-50 text-slate-600 border border-transparent flex items-center justify-center whitespace-nowrap">
+                    <i class="fa-solid fa-key mr-2"></i> 3. Freedom & Prayer
+                </button>
+                <button onclick="switchTab('leadership')" id="tab-leadership" class="tab-btn shrink-0 flex-1 py-3 px-4 rounded-lg text-sm font-semibold transition hover:bg-slate-50 text-slate-600 border border-transparent flex items-center justify-center whitespace-nowrap">
+                    <i class="fa-solid fa-users mr-2"></i> 4. Support Team
+                </button>
+                <button onclick="switchTab('careteam')" id="tab-careteam" class="tab-btn shrink-0 flex-1 py-3 px-4 rounded-lg text-sm font-semibold transition hover:bg-slate-50 text-slate-600 border border-transparent flex items-center justify-center whitespace-nowrap">
+                    <i class="fa-solid fa-hand-holding-heart mr-2"></i> 5. Care Team SOP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 mb-20">
+
+        <!-- PART 1: THE STRUGGLER'S BLUEPRINT -->
+        <div id="content-men" class="tab-content active">
+            <div class="mb-8">
+                <div class="inline-block bg-grace-100 text-grace-800 font-bold px-3 py-1 rounded-full text-xs tracking-wide uppercase mb-3">Part 1</div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Struggler's Blueprint</h2>
+                <p class="text-slate-600 text-lg">Objective: To move from the trauma of being "caught" (Discovery) to the freedom of "choosing to tell" (Disclosure) by implementing physical, emotional, and spiritual boundaries.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Phase 1 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-men-1')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 1</span>
+                            <span class="font-semibold text-lg text-slate-800">Immediate Stabilization (The External Brakes)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-men-1"></i>
+                    </button>
+                    <div id="acc-men-1" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">When we are struggling with a habit like phone or pornography addiction, our brain’s "biological brakes" are often overwhelmed by the "dopamine fire hose." Before we can do deep soul work, we need to create a safe environment and allow the neurological system to reset.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Bedroom Boundaries:</strong> Remove all internet-connected devices from the bedroom. It is reserved exclusively for rest and real-world intimacy.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Filter Architecture:</strong> Install accountability software (e.g., Covenant Eyes, Canopy). These are "speed bumps" to give your brain time to choose truth over an impulse.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Analog Resets:</strong> Designate a specific 24-hour period each week to remain entirely offline to reset dopamine sensitivity.</li>
+                            </ul>
+                            <div class="mt-5 p-4 bg-slate-50 rounded-lg border-l-4 border-grace-500">
+                                <p class="text-sm italic font-medium">"Turn my eyes from looking at worthless things; and give me life in your ways." - Psalm 119:37</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-men-2')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 2</span>
+                            <span class="font-semibold text-lg text-slate-800">Truth-Telling (The Disclosure Protocol)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-men-2"></i>
+                    </button>
+                    <div id="acc-men-2" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">We believe that shame is a curtain we hang over our hearts to hide our true selves. Healing is impossible in the dark.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Identify a Safe Circle:</strong> Find a mentor or care team that operates under three rules: <em>No Judgment, No Fixing, and Absolute Confidentiality.</em></li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Full Disclosure vs. Trickle-Truth:</strong> Voluntarily pull down the "curtain" by naming the struggle clearly. Tell the truth to get healthy, not just to get out of trouble.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Renounce the Sales Pitch:</strong> Identify the lie you are believing (e.g., "I can have intimacy without vulnerability") and replace it with the truth of your identity.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-men-3')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 3</span>
+                            <span class="font-semibold text-lg text-slate-800">Root Analysis (The Wound Assessment)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-men-3"></i>
+                    </button>
+                    <div id="acc-men-3" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">Pornography is often a "release valve" for internal pressure. You must address the "soil" where the addiction grew.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Pressure Cooker Check:</strong> Identify the "HALT" triggers—Hungry, Angry, Lonely, Tired—that drive you to numb out.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Debt List (Forgiveness):</strong> List those you resent. Unforgiveness creates "digital static". Releasing the debt lowers the internal pressure.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-men-4')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 4</span>
+                            <span class="font-semibold text-lg text-slate-800">Constructing the Trellis (Rule of Life)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-men-4"></i>
+                    </button>
+                    <div id="acc-men-4" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">A vine that grows on the ground will rot; it needs a structure to lean on. Build your "3-Circle Plan":</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mt-4">
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                    <h4 class="font-bold text-red-700 mb-2">1. Inner Circle</h4>
+                                    <p>Define specific behaviors you are renouncing (e.g., viewing pornography). This is crossing the line.</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
+                                    <h4 class="font-bold text-yellow-700 mb-2">2. Middle Circle</h4>
+                                    <p>Identify warning signs like being on your phone after 11 PM, or isolating when stressed.</p>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                    <h4 class="font-bold text-emerald-700 mb-2">3. Outer Circle</h4>
+                                    <p>Focus on "analog" joys: physical exercise, outdoor hobbies, or serving at church.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-men-5')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 5</span>
+                            <span class="font-semibold text-lg text-slate-800">Mission Shift (From Consumer to Protector)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-men-5"></i>
+                    </button>
+                    <div id="acc-men-5" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">The final goal of restoration is to have Surplus Value—the extra emotional and spiritual energy you gain when you are no longer wasting your life hiding secrets.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Protector of the Sandbox:</strong> Shift from being a consumer of people (viewing them as products) to a protector of your family and the next generation.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Repairer of the Ruins:</strong> Your story of freedom becomes a blueprint that helps others find their way out from behind their own curtains.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 2: THE SPOUSE'S BLUEPRINT -->
+        <div id="content-spouse" class="tab-content">
+             <div class="mb-8">
+                <div class="inline-block bg-grace-100 text-grace-800 font-bold px-3 py-1 rounded-full text-xs tracking-wide uppercase mb-3">Part 2</div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Spouse's Blueprint</h2>
+                <p class="text-slate-600 text-lg">Objective: To provide a sanctuary and stabilizing framework for the spouse who has experienced the trauma of discovery or disclosure, moving from the initial "explosion" toward personal safety and restored agency.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Phase 1 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-sp-1')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 1</span>
+                            <span class="font-semibold text-lg text-slate-800">Immediate Stabilization (Establishing the Shelter)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-sp-1"></i>
+                    </button>
+                    <div id="acc-sp-1" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">In the wake of betrayal, your brain is likely in a "fight, flight, or freeze" state. Our first priority is to move you from a state of emergency to a state of safety.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Prioritize Self-Care over Investigation:</strong> Stop the "detective work." Constantly searching behind the "curtains" keeps your brain in trauma. Focus on sleep, hydration, and nutrition.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Define Physical Boundaries:</strong> Establish exactly what you need to feel safe in your home right now.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Safe Circle:</strong> Seek circles of women who operate under the rules of No Judgment, No Fixing, and Absolute Safety.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-sp-2')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 2</span>
+                            <span class="font-semibold text-lg text-slate-800">Naming the Reality (The Truth Assessment)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-sp-2"></i>
+                    </button>
+                    <div id="acc-sp-2" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">Betrayal creates a "shattering" of your story. The restorative process helps you pick up the pieces and see them clearly.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Dismantle the Shame:</strong> Recognize that your partner’s struggle is a biological and spiritual "choke-hold" on <em>their</em> life. It is not a reflection of your worth or beauty.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Disclosure over Discovery:</strong> Require a transition where your partner voluntarily brings the truth into the light.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-sp-3')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 3</span>
+                            <span class="font-semibold text-lg text-slate-800">Processing the Wound (Lowering the Pressure)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-sp-3"></i>
+                    </button>
+                    <div id="acc-sp-3" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">The intense internal pressure and pain of betrayal must be released healthily so it doesn't manifest as destructive bitterness.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Practice Lament:</strong> Give yourself permission to be angry and grieved.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Debt Assessment:</strong> Forgiveness is not "fixing" them. It is a spiritual transaction to release the debt to God so it stops rotting your own soul.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 & 5 -->
+                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-sp-4')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 4 & 5</span>
+                            <span class="font-semibold text-lg text-slate-800">Your Personal Trellis & Legacy Shift</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-sp-4"></i>
+                    </button>
+                    <div id="acc-sp-4" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">You need a "trellis" for your own life that does not depend on your husband’s choices or progress.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Build Your 3-Circle Plan:</strong> Define your Non-Negotiables (Inner), warning signs (Middle), and Analog Joys (Outer).</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Surplus Value & Protection:</strong> As you heal, you gain surplus emotional strength to lead your children with wisdom, becoming a <strong>Protector of the Sandbox</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 3: FREEDOM & PRAYER -->
+        <div id="content-freedom" class="tab-content">
+            <div class="mb-8">
+                <div class="inline-block bg-grace-100 text-grace-800 font-bold px-3 py-1 rounded-full text-xs tracking-wide uppercase mb-3">Part 3</div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Freedom Framework & Restorative Prayer</h2>
+                <p class="text-slate-600 text-lg mb-6">The Steps to Freedom in Christ is a structured spiritual process to dismantle "spiritual strongholds," bringing hidden areas into the light to break their power.</p>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                        <i class="fa-solid fa-hands-praying text-grace-600 mr-3"></i> Restorative Prayer
+                    </h3>
+                    <p class="text-slate-600 mb-4">While small groups break the silence, Restorative Prayer is a direct, confidential encounter with God to heal deep, invisible wounds.</p>
+                    <ul class="list-disc pl-5 text-slate-600 space-y-2 mb-6">
+                        <li><strong>For the Struggler:</strong> A private session to "recognize and release" the roots of shame or insignificance. It rebuilds the mind's internal brakes.</li>
+                        <li><strong>For the Betrayed Spouse:</strong> A spiritual "trauma room" to process the shattering of trust and hear God's voice over the "digital static".</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Mentor’s Truth-Telling Checklist</h3>
+                <p class="text-slate-600 mb-4">Used in Safe Circles to facilitate honesty and cut through pretense. Click items to check them off.</p>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-2 sm:p-4" id="checklist-container">
+                    <label class="flex items-start p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-grace-600 rounded border-gray-300 focus:ring-grace-500">
+                        <div class="ml-3">
+                            <span class="block font-semibold text-slate-800">Counterfeit vs. Real</span>
+                            <span class="block text-sm text-slate-500">Are you ready to renounce the "God Machine" of the screen and the false comfort it provides?</span>
+                        </div>
+                    </label>
+                    
+                    <label class="flex items-start p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition border-t border-slate-100">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-grace-600 rounded border-gray-300 focus:ring-grace-500">
+                        <div class="ml-3">
+                            <span class="block font-semibold text-slate-800">Deception</span>
+                            <span class="block text-sm text-slate-500">What specific lie of the algorithm (e.g., "Intimacy without risk") have you believed, and are you ready to expose it?</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition border-t border-slate-100">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-grace-600 rounded border-gray-300 focus:ring-grace-500">
+                        <div class="ml-3">
+                            <span class="block font-semibold text-slate-800">Forgiveness</span>
+                            <span class="block text-sm text-slate-500">Who is on your "Debt List"? Are you ready to cancel what they owe you to lower your internal pressure?</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition border-t border-slate-100">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-grace-600 rounded border-gray-300 focus:ring-grace-500">
+                        <div class="ml-3">
+                            <span class="block font-semibold text-slate-800">Bondage & Disclosure</span>
+                            <span class="block text-sm text-slate-500">Are you choosing Disclosure (voluntarily telling the truth today) over Discovery (waiting to be caught)?</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition border-t border-slate-100">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-grace-600 rounded border-gray-300 focus:ring-grace-500">
+                        <div class="ml-3">
+                            <span class="block font-semibold text-slate-800">Identity</span>
+                            <span class="block text-sm text-slate-500">Can you recite the "Who I Am in Christ" list? (e.g., "I am a temple of God," "I am significant, secure, and loved").</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 4: LEADERSHIP ROLES -->
+        <div id="content-leadership" class="tab-content">
+            <div class="mb-8">
+                <div class="inline-block bg-grace-100 text-grace-800 font-bold px-3 py-1 rounded-full text-xs tracking-wide uppercase mb-3">Part 4</div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Leadership Roles – The Support Team</h2>
+                <p class="text-slate-600 text-lg">In a "church without curtains," recovery thrives in community. However, different roles provide different types of architectural support. <strong>It is crucial that these roles are filled by different people.</strong></p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Mentor -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full -z-10"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mr-4">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">Mentor</h3>
+                            <p class="text-sm text-emerald-700 font-medium">The "Spiritual Architect"</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li><strong>Primary Focus:</strong> The Roots & Soil (Why are you clicking?)</li>
+                        <li><strong>Goal:</strong> Internal Transformation, Heart Healing, Identity</li>
+                        <li><strong>Tools Used:</strong> Freedom Steps, Restorative Prayer, 3-Circle Plan</li>
+                        <li><strong>Frequency:</strong> Deep, structured sessions (Weekly/Monthly)</li>
+                        <li><strong>Qualification:</strong> Must have "Surplus Value" and sustained freedom.</li>
+                    </ul>
+                </div>
+
+                <!-- Accountability Partner -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xl mr-4">
+                            <i class="fa-solid fa-hand"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">Accountability Partner</h3>
+                            <p class="text-sm text-blue-700 font-medium">The "Speed Bump"</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li><strong>Primary Focus:</strong> The Brakes & Behavior (How do we stop the click?)</li>
+                        <li><strong>Goal:</strong> External Stabilization, Tactical Daily Safety</li>
+                        <li><strong>Tools Used:</strong> Software Monitoring, Filter Architecture, Daily Logs</li>
+                        <li><strong>Frequency:</strong> Frequent, brief check-ins (Daily/As-needed)</li>
+                        <li><strong>Qualification:</strong> Can be a fellow struggler fighting in the trenches.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8">
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Why Must They Be Separate?</h3>
+                <ul class="space-y-4 text-slate-600 text-sm">
+                    <li><strong class="text-slate-800">1. Specialization:</strong> One manages the urgent tactical needs (Did you look at porn today?), while the other manages the important heart transformation (Who do you need to forgive?).</li>
+                    <li><strong class="text-slate-800">2. Preventing "Reporting Shame":</strong> If a Mentor also receives daily software reports, a "slip" can make the participant feel they failed their spiritual guide, leading to "trickle-truth" and new curtains. Separating them creates a safe space.</li>
+                    <li><strong class="text-slate-800">3. Expanding the Circle:</strong> Ecclesiastes 4:12 reminds us that "a threefold cord is not quickly broken." Utilizing both roles expands your load-bearing relationships.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PART 5: CARE TEAM BLUEPRINT (NEW) -->
+        <div id="content-careteam" class="tab-content">
+            <div class="mb-8">
+                <div class="inline-block bg-grace-100 text-grace-800 font-bold px-3 py-1 rounded-full text-xs tracking-wide uppercase mb-3">Part 5</div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Care Team Blueprint (SOP for Disclosures)</h2>
+                <p class="text-slate-600 text-lg">Objective: To equip mentors, care team members, and church leaders to handle disclosures of sexual sin with grace, ensuring the participant moves from isolation to safety without experiencing "reporting shame" or judgment.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Phase 1 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-care-1')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 1</span>
+                            <span class="font-semibold text-lg text-slate-800">The Immediate Response</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-care-1"></i>
+                    </button>
+                    <div id="acc-care-1" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">When a participant bravely tells a secret for the first time, your initial reaction will either build trust or cause them to hang the curtain back up.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Don't Panic:</strong> Stay calm, steady, and empathetic. Do not show shock or disappointment.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Thank Them:</strong> The very first thing you should say is: <em>"Thank you for being brave enough to tell the truth. That took incredible strength."</em></li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Validate the Step:</strong> Remind them that pulling down the curtain and choosing disclosure is the only way to break the neurological choke-hold.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-care-2')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 2</span>
+                            <span class="font-semibold text-lg text-slate-800">Directing the Conversation</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-care-2"></i>
+                    </button>
+                    <div id="acc-care-2" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">The goal of a disclosure conversation is heart healing, not gathering evidence.</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Focus on the "Why":</strong> Do not ask for graphic details. Ask: <em>"What hunger, pain, or pressure were you trying to hide in that moment?"</em></li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Reinforce the Three Rules:</strong> Remind them they are in a safe circle governed by: No Judgment, No Fixing, and Absolute Safety (Confidentiality).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-care-3')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 3</span>
+                            <span class="font-semibold text-lg text-slate-800">The Leader's Posture</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-care-3"></i>
+                    </button>
+                    <div id="acc-care-3" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Leader's Heart:</strong> You cannot lead others where you are not willing to go. Be a "truth-teller" yourself to give the group permission to drop their curtains.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Guide the Trellis:</strong> Gently help them update their 3-Circle Plan, identify new "slippery slopes", and lean into their "analog joys".</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4: Escalation (Highlighted) -->
+                <div class="border-2 border-red-200 rounded-xl bg-red-50 overflow-hidden shadow-sm">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-care-4')">
+                        <div class="flex items-center">
+                            <span class="bg-red-200 text-red-800 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 4</span>
+                            <span class="font-bold text-lg text-red-900">Escalation Protocol (Involving Minors)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-red-400 transition-transform duration-300" id="icon-acc-care-4"></i>
+                    </button>
+                    <div id="acc-care-4" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-red-900 border-t border-red-100 mt-2">
+                            <p class="mb-4 font-medium">While Grace Community Church is committed to being a safe place, the safety of children supersedes all confidentiality. If a disclosure involves images of children (CSAM), the standard process <strong>must immediately stop</strong>.</p>
+                            <ul class="space-y-3 text-sm">
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-600 mr-2"></i> <strong>Halt the Conversation:</strong> State clearly: <em>"I need to stop you right there. For the safety of children, our policy requires us to report this. I cannot keep this confidential."</em></li>
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-600 mr-2"></i> <strong>Mandatory Reporting:</strong> Contact local law enforcement immediately. Do not investigate this yourself.</li>
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-600 mr-2"></i> <strong>Leadership Escalation:</strong> Notify the Senior Pastor and church legal counsel/elder board.</li>
+                                <li><i class="fa-solid fa-triangle-exclamation text-red-600 mr-2"></i> <strong>Boundary Enforcement:</strong> The individual must be immediately removed from any volunteer roles involving minors.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('acc-care-5')">
+                        <div class="flex items-center">
+                            <span class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-md text-sm mr-4">Phase 5</span>
+                            <span class="font-semibold text-lg text-slate-800">Volunteer Roles & The Healing Sabbatical</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300" id="icon-acc-care-5"></i>
+                    </button>
+                    <div id="acc-care-5" class="accordion-content">
+                        <div class="px-6 pb-6 pt-2 text-slate-600 border-t border-slate-100 mt-2">
+                            <p class="mb-4">If an individual discloses a struggle with adult pornography (no minors) but volunteers in ministry, handle it with grace and recovery rather than punishment:</p>
+                            <ul class="space-y-3">
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Validate Their Honesty:</strong> A leader who is honest is vastly safer than a leader who is hiding.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Healing Sabbatical:</strong> Ask the individual to take a temporary, grace-filled break from serving. This is an architectural measure, not punitive.</li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>Lowering the Pressure:</strong> Explain: <em>"To lead children well, you need 'Surplus Value.' We are taking this responsibility off your plate so you can focus entirely on getting healthy."</em></li>
+                                <li><i class="fa-solid fa-check text-grace-500 mr-2"></i> <strong>The Pathway Back:</strong> Establish clear milestones for returning based on sustained periods of living in their "Outer Circle."</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="mb-4 md:mb-0 flex items-center">
+                <i class="fa-solid fa-church text-slate-500 text-xl mr-3"></i>
+                <span>Grace Community Church<br>21001 Moross Road, Detroit, MI 48236</span>
+            </div>
+            <div class="text-center md:text-right">
+                <p>Care Ministries & Restorative Prayer</p>
+                <a href="tel:3139361512" class="text-white font-bold hover:text-grace-400 transition">313.936.1512</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Reset all buttons styling
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-grace-100', 'text-grace-900', 'border-grace-200');
+                btn.classList.add('hover:bg-slate-50', 'text-slate-600', 'border-transparent');
+            });
+
+            // Show selected content
+            document.getElementById('content-' + tabId).classList.add('active');
+
+            // Update selected button styling
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.remove('hover:bg-slate-50', 'text-slate-600', 'border-transparent');
+            activeBtn.classList.add('bg-grace-100', 'text-grace-900', 'border-grace-200');
+        }
+
+        // Accordion Logic
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                // Close
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Open (calculate scroll height dynamically)
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
